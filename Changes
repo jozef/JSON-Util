@@ -1,5 +1,8 @@
 Revision history for JSON-Util
 
+0.02    10 Sep 2009
+    - croak decode error
+
 0.01    Date/time
         First version, released on an unsuspecting world.
 

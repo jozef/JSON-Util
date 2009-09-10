@@ -27,7 +27,7 @@ JSON::Util - encode/decode with artificial stupidity
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use 5.010;
 use feature 'state';
@@ -107,7 +107,11 @@ sub decode {
     croak 'too many arguments'
         if @_;
     
-    return $self->json->decode(IO::Any->slurp($what));
+    my $data = eval { $self->json->decode(IO::Any->slurp($what)) };
+    my $error = $@; $error =~ s/\n$//;
+    croak $error if $@;
+    
+    return $data;
 }
 
 =head2 encode($data, [$where])
