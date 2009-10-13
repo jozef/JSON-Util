@@ -28,6 +28,7 @@ sub main {
 		{'bar' => 'foo'},
 		'JSON::Util->decode("filename")'
 	);
+	
     JSON::Util->encode(
 		[
 			'foo'   => 'baz',
@@ -36,8 +37,10 @@ sub main {
 		],
 		[$tmpdir, 'someother.json'],
 	);
+	my $test_json_file_content = IO::Any->slurp([$tmpdir, 'someother.json']);
+	$test_json_file_content =~ s/\s+$//; # strip final newline (introduced in JSON::XS 2.26)
     eq_or_diff(
-		IO::Any->slurp([$tmpdir, 'someother.json']),
+		$test_json_file_content,
 		IO::Any->slurp([$Bin, 'stock', '02.json']),
 		'JSON::Util->encode()',
 	);

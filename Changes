@@ -1,5 +1,8 @@
 Revision history for JSON-Util
 
+0.03    13 Oct 2009
+    - fixed test to pass with JSON::XS 2.26 (indent now adds a final newline)
+
 0.02    10 Sep 2009
     - croak decode error
 

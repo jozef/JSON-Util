@@ -27,7 +27,7 @@ JSON::Util - encode/decode with artificial stupidity
 use warnings;
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use 5.010;
 use feature 'state';
