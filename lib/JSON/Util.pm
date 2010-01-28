@@ -20,6 +20,12 @@ JSON::Util - encode/decode with artificial stupidity
     my $json = JSON::Util->new(pretty => 0, convert_blessed => 1);
     print $json->encode([ $object, $object2 ]);
 
+    # with file locking
+    $data = JSON::Util->decode(['..', 'folder', some.json], { 'LOCK_SH' => 1 });
+    $data = JSON::Util->decode(['..', 'folder', some.json], { 'LOCK_SH' => 1, LOCK_NB => 1 });
+    JSON::Util->encode([123,321], ['..', 'folder', someother.json], { 'LOCK_EX' => 1 });
+    JSON::Util->encode([123,321], ['..', 'folder', someother.json], { 'LOCK_EX' => 1, LOCK_NB => 1 });
+
 =head1 DESCRIPTION
 
 =cut
@@ -94,30 +100,31 @@ sub json {
     return (blessed $_[0] ? $_[0]->{'json'} : $_[0]->default_json);
 }
 
-=head2 decode($what)
+=head2 decode($what, [$opt])
 
-Return ref with decoded C<$what>. For definition of C<$what> can be
-please see L<IO::Any>.
+Return ref with decoded C<$what>. See L<IO::Any> for C<$where> and C<$opt>
+description.
 
 =cut
 
 sub decode {
     my $self = shift;
     my $what = shift;
+    my $opt  = shift;
     croak 'too many arguments'
         if @_;
     
-    my $data = eval { $self->json->decode(IO::Any->slurp($what)) };
+    my $data = eval { $self->json->decode(IO::Any->slurp($what, $opt)) };
     my $error = $@; $error =~ s/\n$//;
     croak $error if $@;
     
     return $data;
 }
 
-=head2 encode($data, [$where])
+=head2 encode($data, [$where], [$opt])
 
 Returns encoded C<$data>. If C<$where> is passed then then the result is
-written there. See L<IO::Any> for C<$where> options.
+written there. See L<IO::Any> for C<$where> and C<$opt> description.
 
 =cut
 
@@ -130,10 +137,11 @@ sub encode {
         if (@_ == 0);
     
     my $where = shift;
+    my $opt   = shift;
     croak 'too many arguments'
         if @_;
     
-    return IO::Any->spew($where, $self->json->encode($data));
+    return IO::Any->spew($where, $self->json->encode($data), $opt);
 }
 
 1;
