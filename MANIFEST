@@ -1,7 +1,10 @@
 Build.PL
 Changes
 lib/JSON/Util.pm
+Makefile.PL
 MANIFEST			This list of files
+META.yml
+README
 t/01_JSON-Util.t
 t/distribution.t
 t/fixme.t
@@ -10,6 +13,3 @@ t/pod-spell.t
 t/pod.t
 t/stock/01.json
 t/stock/02.json
-Makefile.PL
-README
-META.yml
