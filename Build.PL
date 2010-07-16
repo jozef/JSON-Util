@@ -18,7 +18,8 @@ my $builder = Module::Build->new(
     build_requires => {
         'Test::More'        => 0,
         'Test::Differences' => 0,
-        'File::Temp'      => 0,
+        'File::Temp'        => 0,
+        'Test::Exception'   => 0,
     },
     add_to_cleanup      => [ 'JSON-Util-*' ],
     create_makefile_pl => 'traditional',

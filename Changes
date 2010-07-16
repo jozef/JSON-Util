@@ -1,5 +1,8 @@
 Revision history for JSON-Util
 
+0.05    16 Mar 2010
+    - build_requires fix
+
 0.04     4 Mar 2009
     - allow file locking and atomic (see IO::Any)
 
