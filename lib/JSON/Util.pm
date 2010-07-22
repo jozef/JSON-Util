@@ -2,7 +2,7 @@ package JSON::Util;
 
 =head1 NAME
 
-JSON::Util - encode/decode with artificial stupidity
+JSON::Util - easy and portable encode/decode of JSON
 
 =head1 SYNOPSIS
 
