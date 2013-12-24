@@ -123,7 +123,7 @@ sub decode {
 
 =head2 encode($data, [$where], [$opt])
 
-Returns encoded C<$data>. If C<$where> is passed then then the result is
+Returns encoded C<$data>. If C<$where> is passed then the result is
 written there. See L<IO::Any> for C<$where> and C<$opt> description.
 
 =cut
