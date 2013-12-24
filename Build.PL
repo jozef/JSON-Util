@@ -25,6 +25,11 @@ my $builder = Module::Build->new(
     create_makefile_pl => 'traditional',
     create_readme       => 1,
     sign                => 1,
+    meta_merge => {
+        resources => {
+            repository => 'https://github.com/jozef/JSON-Util',
+        },
+    },
 );
 
 $builder->create_build_script();
