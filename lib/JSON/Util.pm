@@ -41,7 +41,7 @@ use feature 'state';
 use Scalar::Util 'blessed';
 use IO::Any;
 use Carp 'croak';
-use JSON::XS;
+use JSON::MaybeXS;
 
 =head1 METHODS
 
@@ -49,7 +49,7 @@ use JSON::XS;
 
 Object constructor. Needed only when the L</default_json> configuration
 needs to be changed. Any key/value passed as parameter will be called on
-C<<JSON::XS->new()>> as C<<$json->$key($value)>>.
+C<<JSON::MaybeXS->new()>> as C<<$json->$key($value)>>.
 
 =cut
 
@@ -64,7 +64,7 @@ sub new {
 
     my $self  = bless \%options, __PACKAGE__;
     
-    my $json = JSON::XS->new();
+    my $json = JSON::MaybeXS->new();
     while (my ($option, $value) = each %options) {
         $json->$option($value);
     }
@@ -76,7 +76,7 @@ sub new {
 
 =head2 default_json
 
-Returns C<<JSON::XS->new()>> with:
+Returns C<<JSON::MaybeXS->new()>> with:
 
         'utf8'            => 1,
         'pretty'          => 1,
@@ -92,7 +92,7 @@ sub default_json {
 
 =head2 json
 
-Returns current L<JSON::XS> object.
+Returns current L<JSON::MaybeXS> object.
 
 =cut
 

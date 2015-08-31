@@ -10,6 +10,7 @@ use Test::More tests => 8;
 use Test::Differences;
 use File::Temp 'tempdir';
 use IO::Any;
+use JSON::MaybeXS;
 use Test::Exception;
 
 use FindBin '$Bin';
@@ -21,7 +22,7 @@ BEGIN {
 exit main();
 
 sub main {
-	my $jsonxs = JSON::XS->new->utf8->pretty->convert_blessed;
+	my $jsonxs = JSON::MaybeXS->new->utf8->pretty->convert_blessed;
 	my $tmpdir = tempdir( CLEANUP => 1 );
 	
 	my $utf8_data = [

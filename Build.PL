@@ -10,10 +10,10 @@ my $builder = Module::Build->new(
     dist_author         => 'Jozef Kutej <jkutej@cpan.org>',
     dist_version_from   => 'lib/JSON/Util.pm',
     requires => {
-        'Scalar::Util' => 0,
-        'IO::Any'      => 0,
-        'Carp'         => 0,
-        'JSON::XS'     => 0,
+        'Scalar::Util'  => 0,
+        'IO::Any'       => 0,
+        'Carp'          => 0,
+        'JSON::MaybeXS' => 0,
     },
     build_requires => {
         'Test::More'        => 0,
