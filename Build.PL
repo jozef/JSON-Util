@@ -9,6 +9,7 @@ my $builder = Module::Build->new(
     license             => 'perl',
     dist_author         => 'Jozef Kutej <jkutej@cpan.org>',
     dist_version_from   => 'lib/JSON/Util.pm',
+    configure_requires  => { 'Module::Build' => 0.38 },
     requires => {
         'Scalar::Util'  => 0,
         'IO::Any'       => 0,
@@ -22,9 +23,7 @@ my $builder = Module::Build->new(
         'Test::Exception'   => 0,
     },
     add_to_cleanup      => [ 'JSON-Util-*' ],
-    create_makefile_pl => 'traditional',
     create_readme       => 1,
-    sign                => 1,
     meta_merge => {
         resources => {
             repository => 'https://github.com/jozef/JSON-Util',

@@ -13,3 +13,4 @@ t/pod-spell.t
 t/pod.t
 t/stock/01.json
 t/stock/02.json
+META.json

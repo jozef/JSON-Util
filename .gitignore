@@ -3,6 +3,7 @@
 /pm_to_blib
 /META.yml
 /MYMETA.yml
+/MYMETA.json
 /README
 /Makefile.PL
 /Build
