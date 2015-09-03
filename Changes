@@ -1,5 +1,8 @@
 Revision history for JSON-Util
 
+0.06    3 Sep 2015
+    - swapping JSON::MaybeXS in for JSON::XS (thanks to John SJ Anderson)
+
 0.05    16 Mar 2010
     - build_requires fix
 

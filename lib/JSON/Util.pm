@@ -33,7 +33,7 @@ JSON::Util - easy and portable encode/decode of JSON
 use warnings;
 use strict;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use 5.010;
 use feature 'state';
@@ -194,6 +194,12 @@ L<http://search.cpan.org/dist/JSON-Util>
 
 =head1 ACKNOWLEDGEMENTS
 
+The following people have contributed to the Sys::Path by committing their
+code, sending patches, reporting bugs, asking questions, suggesting useful
+advises, nitpicking, chatting on IRC or commenting on my blog (in no particular
+order):
+
+    John SJ Anderson
 
 =head1 COPYRIGHT & LICENSE
 
